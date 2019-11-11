@@ -1,15 +1,54 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Savetheplanet</title>
+    <title>Save It</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,800,800i,900,900i&display=swap" rel="stylesheet">
+
   </head>
 
   <body>
+
+    <nav class="navbar navbar-toggleable-md navbar-light" style="background-color: #18634c;">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#" id="logo"><em>save it</em></a>
+
+      <ul class="navbar-nav">
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to 'sign out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'add a save', new_safe_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'my saves', saves_path, class: 'nav-link' %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to 'sign in', new_user_session_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'sign up', new_user_registration_path, class: 'nav-link' %>
+          </li>
+        <% end %>
+      </ul>
+    </nav>
+
+    <% if notice.present? %>
+      <p class="alert alert-info"><%= notice %></p>
+    <% end %>
+    <% if alert.present? %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
