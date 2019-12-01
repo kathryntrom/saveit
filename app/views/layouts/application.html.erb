@@ -26,10 +26,10 @@
             <%= link_to 'sign out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
           </li>
           <li class="nav-item">
-            <%= link_to 'add a save', new_safe_path, class: 'nav-link' %>
+            <%= link_to 'add an impact', new_impact_path, class: 'nav-link' %>
           </li>
           <li class="nav-item">
-            <%= link_to 'my saves', saves_path, class: 'nav-link' %>
+            <%= link_to 'my impacts', impacts_path, class: 'nav-link' %>
           </li>
         <% else %>
           <li class="nav-item">

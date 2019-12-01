@@ -10,10 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_11_113122) do
+ActiveRecord::Schema.define(version: 2019_11_12_014004) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "impacts", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.float "value"
+    t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_impacts_on_user_id"
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.string "name"
+    t.float "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

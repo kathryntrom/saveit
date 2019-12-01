@@ -69,3 +69,10 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3'
 end
 gem 'devise'
+gem 'simple_form'
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.5'
+end
+
+gem 'httparty'
