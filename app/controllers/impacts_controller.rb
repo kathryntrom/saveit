@@ -13,7 +13,6 @@ class ImpactsController < ApplicationController
 	def create
 		current_user.impacts.create(impact_params)
 		redirect_to impacts_path
-		render json: impact
 	end
 
 	private

@@ -2,18 +2,19 @@
 	<div class="row">
 		<div class="col-10">
 			<h1>My Impacts</h1>
-				<% @impacts.each do |impact| %>
-				  <div>
-				    <h2><%= impact.name %></h2>
-				    <p><%= impact.description %></p>
-				    <p><%= impact.value %></p>
-				    <% if impact.user.present? %>
-				      <p><%= impact.user.email %></h3>
-				    <% end %>
-				    <hr>
-				    <br><br>
-				  </div>
-				<% end %>
+			<% @impacts.each do |impact| %>
+			  <div>
+			    <h2><%= impact.name %></h2>
+			    <p><%= impact.value %></p>
+			    <p><%= Item.all.map { |r| [r.name, r.value] } %></p>
+
+			    <% if impact.user.present? %>
+			      <p><%= impact.user.email %></h3>
+			    <% end %>
+			    <hr>
+			    <br><br>
+			  </div>
+			<% end %>
 		</div>
 	</div>
 </div>

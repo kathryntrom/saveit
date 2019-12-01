@@ -26,6 +26,12 @@
             <%= link_to 'sign out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
           </li>
           <li class="nav-item">
+            <%= link_to 'add an item', new_item_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'my items', items_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
             <%= link_to 'add an impact', new_impact_path, class: 'nav-link' %>
           </li>
           <li class="nav-item">

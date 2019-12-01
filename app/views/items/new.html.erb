@@ -1,12 +1,10 @@
 <div class="hero container">
 	<div class="row">
 		<div class="col-10">
-			<h1>Add an Impact</h1>
-			<%= simple_form_for @impact do |f| %>
+			<h1>Add an Item</h1>
+			<%= simple_form_for @item do |f| %>
 			    <%= f.input :name %>
-			    <%= f.input :value do %>
-			    <%= f.select :value, Item.all.map { |r| [r.name, r.value] } %>
-		    	<% end %>
+			    <%= f.input :value %>
 			    <%= f.submit 'Create', class: 'btn btn-primary' %>
 			<% end %>
 		</div>
