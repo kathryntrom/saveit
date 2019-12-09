@@ -10,15 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_01_233322) do
+ActiveRecord::Schema.define(version: 2019_12_03_013013) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "ImpactItems", force: :cascade do |t|
+    t.bigint "impact_id"
+    t.bigint "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["impact_id"], name: "index_ImpactItems_on_impact_id"
+    t.index ["item_id"], name: "index_ImpactItems_on_item_id"
+  end
+
+  create_table "footprints", force: :cascade do |t|
+    t.integer "item_id"
+    t.integer "impact_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "impacts", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.float "value"
+    t.float "item"
     t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

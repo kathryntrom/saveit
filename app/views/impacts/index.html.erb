@@ -1,13 +1,16 @@
 <div class="hero container">
 	<div class="row">
 		<div class="col-10">
+			<h1>My Progress</h1>
+			<p>You have <%= @impacts.sum(:item) %> point(s).</p>
+			<p>You need <%= 100 - @impacts.sum(:item) %> more point(s) to save a tree!</p>
+			<br>
+			<br>
 			<h1>My Impacts</h1>
 			<% @impacts.each do |impact| %>
 			  <div>
 			    <h2><%= impact.name %></h2>
-			    <p><%= impact.value %></p>
-			    <p><%= Item.all.map { |r| [r.name, r.value] } %></p>
-
+			    <p><%= impact.item %></p>
 			    <% if impact.user.present? %>
 			      <p><%= impact.user.email %></h3>
 			    <% end %>

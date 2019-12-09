@@ -4,8 +4,8 @@
 			<h1>Add an Impact</h1>
 			<%= simple_form_for @impact do |f| %>
 			    <%= f.input :name %>
-			    <%= f.input :value do %>
-			    <%= f.select :value, Item.all.map { |r| [r.name, r.value] } %>
+			    <%= f.input :item do %>
+			    	<%= f.select :item, Item.all.map { |r| [r.name, r.value] } %>
 		    	<% end %>
 			    <%= f.submit 'Create', class: 'btn btn-primary' %>
 			<% end %>

@@ -11,6 +11,7 @@ class ImpactsController < ApplicationController
 	end
 
 	def create
+		p params
 		current_user.impacts.create(impact_params)
 		redirect_to impacts_path
 	end
