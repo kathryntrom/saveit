@@ -2,16 +2,16 @@ class Impact < ApplicationRecord
 	belongs_to :user
 	has_many :footprints
 	has_many :items, :through => :footprints
+	accepts_nested_attributes_for :items
 
 	def api_calculate
-		api_response = ImpactHelper.api_test
-		p api_response
-		# items.each do |item|
-		 	# impact.name
-		 	# impact.item 
-		 	# if impact.user.present?
-		 	# 	impact.user.email
-		 	# end
-		# end
+		api_response = ImpactsHelper.api_test
+		totals = 0
+
+		items.each do |item|
+		 	totals += quantity * item.value * api_response
+		end
+
+		return totals
 	end
 end

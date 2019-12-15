@@ -1,19 +1,24 @@
 <div class="hero container">
 	<div class="row">
 		<div class="col-10">
-			<h1>My Progress</h1>
-			<p>You have <%= @impacts.sum(:item) %> point(s).</p>
-			<p>You need <%= 100 - @impacts.sum(:item) %> more point(s) to save a tree!</p>
+			<!-- <h1>My Progress</h1>
+			<p>You have <% @impacts.sum(:item) %> point(s).</p>
+			<p>You need <%= 50000 - @impacts.sum(:item) %> more point(s) to save a tree!</p>
 			<br>
 			<br>
+			 -->
 			<h1>My Impacts</h1>
 			<% @impacts.each do |impact| %>
 			  <div>
-			    <h2><%= impact.name %></h2>
-			    <p><%= impact.item %></p>
+			    <h3><%= impact.name %></h3>
+		    	<% impact.items.each do |item| %>
+		    		<p><%= item.name %></p>
+		    		<p><%= item.value %></p>
+		    	<% end %>
 			    <% if impact.user.present? %>
 			      <p><%= impact.user.email %></h3>
 			    <% end %>
+			 	<h2>Points: <%= impact.api_calculate.round %></h2>
 			    <hr>
 			    <br><br>
 			  </div>

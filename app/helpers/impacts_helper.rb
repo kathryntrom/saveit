@@ -7,6 +7,4 @@ module ImpactsHelper
 		@value = carbon/3
 		p @value
 	end
-
-	
 end

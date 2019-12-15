@@ -19,7 +19,7 @@ class ImpactsController < ApplicationController
 	private
 
 	def impact_params
-		params.require(:impact).permit(:name, :description, :value)
+		params.require(:impact).permit(:name, :description, :quantity, :value, :item_ids => [])
 	end
 
 end
